@@ -1,0 +1,44 @@
+---
+title: FCC Program
+date: 2019/3/3
+description: FCC 项目实战 “随机引语生成器” 做后感
+tag: 前端
+author: ShiftWatchOut
+---
+
+# 起源
+
+项目来源是 FCC 上的 [“随机引语生成器”](https://learn.freecodecamp.one/front-end-libraries/front-end-libraries-projects/build-a-random-quote-machine)，花了两天时间从 0 到接近完成，完成的项目放在 [CodePen](https://codepen.io/freecodework/pen/moPPmW?editors=0010)
+
+# 意料之外的地方
+其实应该是我目前才疏学浅，只用到 React 的冰山一角吧，有一些地方让我花了较长时间。
+
+1. `state` 在改变之后，不能在同一个 `function` 里立马就可以调用到。
+
+```
+class MyComponent extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            myData: ''
+        }
+    }
+    ...
+    doSomething(){
+        this.setState({
+            myData: 'Strings'
+        })
+        //此处myData依然是 ''
+        console.log(this.state.myData);
+    }
+    ...
+}
+```
+
+2. 造成上面情况的原因是：想在组件渲染前，`fetch` 函数获取的数据传给 `state` ，并且开始渲染第一次加载的引语。把 `fetch` 函数放在 `componentWillMount()` 里，然而这个生命周期函数不久后的版本应该就不会再被采用了。之前本想把数据 `fetch` 到手就立即渲染到 `render` 函数里的 `{this.state.myData}` 之类的，但他们都在 `componentWillMount()` 里，后来想到设置子组件的方法，并且先通过条件渲染，确认了想要的 `myData` 非空值，才开始渲染子组件。
+
+```
+{ myData && <Quote/> }
+```
+
+3. 设置 `<body/>` 的样式时用到的 `document.getElementsByTagName（）` 等类似方法获取到的是类数组对象，可以用数字索引 `[0]` 获取。
