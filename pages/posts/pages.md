@@ -1,59 +1,16 @@
 ---
 title: Next.js Pages
 date: 2021/3/18
-description: Learn more about Next.js pages.
-tag: web development
-author: You
+description: 学习有关 Next.js pages.
+tag: 前端
+author: ShiftWatchOut
 ---
 
 # Next.js Pages
 
-In Next.js, a **page** is a [React Component](https://reactjs.org/docs/components-and-props.html) exported from a `.js`, `.jsx`, `.ts`, or `.tsx` file in the `pages` directory. Each page is associated with a route based on its file name.
+在 Next.js 中，一个 **page** 是 [React Component](https://reactjs.org/docs/components-和-props.html) 来自 `pages` 文件夹下的 `.js`, `.jsx`, `.ts`, 或 `.tsx` 文件。每一个 page 都基于它的文件名进行路由
 
-**Example**: If you create `pages/about.js` that exports a React component like below, it will be accessible at `/about`.
-
-```
-function About() {
-  return <div>About</div>
-}
-
-export default About
-```
-
-### Pages with Dynamic Routes
-
-Next.js supports pages with dynamic routes. For example, if you create a file called `pages/posts/[id].js`, then it will be accessible at `posts/1`, `posts/2`, etc.
-
-> To learn more about dynamic routing, check the [Dynamic Routing documentation](/docs/routing/dynamic-routes.md).
-
-## Pre-rendering
-
-By default, Next.js **pre-renders** every page. This means that Next.js generates HTML for each page in advance, instead of having it all done by client-side JavaScript. Pre-rendering can result in better performance and SEO.
-
-Each generated HTML is associated with minimal JavaScript code necessary for that page. When a page is loaded by the browser, its JavaScript code runs and makes the page fully interactive. (This process is called _hydration_.)
-
-### Two forms of Pre-rendering
-
-Next.js has two forms of pre-rendering: **Static Generation** and **Server-side Rendering**. The difference is in **when** it generates the HTML for a page.
-
-- [**Static Generation (Recommended)**](#static-generation-recommended): The HTML is generated at **build time** and will be reused on each request.
-- [**Server-side Rendering**](#server-side-rendering): The HTML is generated on **each request**.
-
-Importantly, Next.js lets you **choose** which pre-rendering form you'd like to use for each page. You can create a "hybrid" Next.js app by using Static Generation for most pages and using Server-side Rendering for others.
-
-We **recommend** using **Static Generation** over Server-side Rendering for performance reasons. Statically generated pages can be cached by CDN with no extra configuration to boost performance. However, in some cases, Server-side Rendering might be the only option.
-
-You can also use **Client-side Rendering** along with Static Generation or Server-side Rendering. That means some parts of a page can be rendered entirely by client side JavaScript. To learn more, take a look at the [Data Fetching](/docs/basic-features/data-fetching.md#fetching-data-on-the-client-side) documentation.
-
-## Static Generation (Recommended)
-
-If a page uses **Static Generation**, the page HTML is generated at **build time**. That means in production, the page HTML is generated when you run `next build` . This HTML will then be reused on each request. It can be cached by a CDN.
-
-In Next.js, you can statically generate pages **with or without data**. Let's take a look at each case.
-
-### Static Generation without data
-
-By default, Next.js pre-renders pages using Static Generation without fetching data. Here's an example:
+**例**：如果你像下面这样新建一个 `pages/about.js` 并导出 React component，你就可以通过 `/about` 访问到它.
 
 ```
 function About() {
@@ -63,18 +20,63 @@ function About() {
 export default About
 ```
 
-Note that this page does not need to fetch any external data to be pre-rendered. In cases like this, Next.js generates a single HTML file per page during build time.
+### 动态路由的 Pages
 
-### Static Generation with data
+Next.js 支持动态路由。例如，你创建一个 `pages/posts/[id].js` 文件，就可以通过 `posts/1`、`posts/2`等进行访问。
 
-Some pages require fetching external data for pre-rendering. There are two scenarios, and one or both might apply. In each case, you can use a special function Next.js provides:
+> 更多关于动态路由，详见 [Dynamic Routing documentation](/docs/routing/dynamic-routes.md).
 
-1. Your page **content** depends on external data: Use `getStaticProps`.
-2. Your page **paths** depend on external data: Use `getStaticPaths` (usually in addition to `getStaticProps`).
+## 预渲染
 
-#### Scenario 1: Your page **content** depends on external data
+一般来说，Next.js **预渲染** 所有页面。这意味着 Next.js 预先给每一页生成 HTML，而非把任务交给客户端 JS 。预渲染能提供更好的 SEO。
 
-**Example**: Your blog page might need to fetch the list of blog posts from a CMS (content management system).
+每个生成的页面带有当前页所需最少的 JS 代码。当一个页面被浏览器加载后，它内部的最少代码会使这个页面依然完全可用。(这个过程叫做 _hydration_。)
+
+### 两种形式的预渲染
+
+Next.js 有两种形式的预渲染：**纯静态生成** 和 **服务端渲染**. The difference is in **when** it generates the HTML for a page.
+
+- [**纯静态生成 (建议使用)**](#纯静态生成-建议使用)：HTML 是在 **构建时** 生成，在被请求时可以复用
+- [**服务端渲染**](#服务端渲染)：HTML 是在 **每次请求** 时渲染。
+
+重要的是，Next.js 允许你为每一页 **选择** 你喜欢的那种预渲染。大多数页面通过纯静态生成，部分通过服务端渲染，你可以打造一个 "混合" Next.js 应用
+
+出于性能考虑我们 **更推荐** 使用 **纯静态生成** 而非服务端渲染。静态生成的文件可以通过 CDN 缓存，无须任何额外配置即可获得良好性能。但在某些情况下，服务端渲染可能是唯一选择。
+
+你也可以把 **客户端渲染** 使用到纯静态生成或服务端渲染中。就算是页面中的一部分内容可以由浏览器的 JS 负责渲染。
+
+> 参考[Data Fetching](/docs/basic-features/data-fetching.md#fetching-data-on-the-client-side) 文档.
+
+## 纯静态生成 (建议使用)
+
+如果一个页面用到 **纯静态生成** 技术, 页面 HTML 会在 **构建时** 生成。在生产环境下, 页面 HTML 是在你运行 `next build` 时就已经生成. 这些 HTML 会在将来每个请求中被复用，可以被 CDN 缓存起来。
+
+在 Next.js 中, 你可以静态生成 **有或没有数据** 的页面。让我们来都看一遍。
+
+### 无数据纯静态生成
+
+Next.js 通过纯静态生成预渲染的页面默认不会自行发起数据请求。例：
+
+```
+function About() {
+  return <div>About</div>
+}
+
+export default About
+```
+
+注意，这个页面进行预渲染时完全不需要请求任何外部数据。这时，Next.js 在构建过程中为每个 page 生成一个 HTML 单文件。
+
+### 有数据纯静态生成
+
+有些页面在预渲染时需要拉取数据。现在有两种方案, 可以随意使用。当然每种方案都需要用到 Next.js 提供的专用函数
+
+1. 页面 **内容** 依赖外部数据：使用 `getStaticProps`.
+2. 页面 **路径**依赖外部数据：使用 `getStaticPaths` (通常作为 `getStaticProps` 的补充).
+
+#### 方案 1：页面内容依赖外部数据
+
+**例**：你的博客页面可能需要从一个 CMS (content management system)拉取文章列表
 
 ```
 // TODO: Need to fetch `posts` (by calling some API endpoint)
@@ -92,7 +94,7 @@ function Blog({ posts }) {
 export default Blog
 ```
 
-To fetch this data on pre-render, Next.js allows you to `export` an `async` function called `getStaticProps` from the same file. This function gets called at build time and lets you pass fetched data to the page's `props` on pre-render.
+为了在组件预渲染时拉取数据, Next.js 允许你在同一文件 `export` 一个名为 `getStaticProps` 的 `async` 函数。这个函数会在编译时被调用，在预渲染时把拉取的数据传递给页面的 `props`。
 
 ```
 function Blog({ posts }) {
@@ -117,21 +119,21 @@ export async function getStaticProps() {
 export default Blog
 ```
 
-To learn more about how `getStaticProps` works, check out the [Data Fetching documentation](/docs/basic-features/data-fetching.md#getstaticprops-static-generation).
+> 更多关于 `getStaticProps` 原理，请看 [Data Fetching documentation](/docs/basic-features/data-fetching.md#getstaticprops-static-generation).
 
-#### Scenario 2: Your page paths depend on external data
+#### Scenario 2：页面路径依赖外部数据
 
-Next.js allows you to create pages with **dynamic routes**. For example, you can create a file called `pages/posts/[id].js` to show a single blog post based on `id`. This will allow you to show a blog post with `id: 1` when you access `posts/1`.
+Next.js 允许你创建带有 **动态路由** 的页面。例如，你可以新建一个 `pages/posts/[id].js` 文件来基于 `id` 变化的博文内容。当你想访问 `posts/1` 时，你获取到的，就是一篇 `id: 1` 的文章。
 
-> To learn more about dynamic routing, check the [Dynamic Routing documentation](/docs/routing/dynamic-routes.md).
+> 更多关于动态路由的内容，查看[Dynamic Routing documentation](/docs/routing/dynamic-routes.md).
 
-However, which `id` you want to pre-render at build time might depend on external data.
+还有一点，你想在构建时预渲染的 `id` 可能依赖外部数据。
 
-**Example**: suppose that you've only added one blog post (with `id: 1`) to the database. In this case, you'd only want to pre-render `posts/1` at build time.
+**例**：假设你数据库里现在只有一篇博文 (即 `id: 1`)。这时，你就只想在构建时预渲染 `posts/1` 。
 
-Later, you might add the second post with `id: 2`. Then you'd want to pre-render `posts/2` as well.
+后来，你也许会加上第二篇博文 `id: 2`。那么你就会想把 `posts/2` 也纳入预渲染的范畴
 
-So your page **paths** that are pre-rendered depend on external data**.** To handle this, Next.js lets you `export` an `async` function called `getStaticPaths` from a dynamic page (`pages/posts/[id].js` in this case). This function gets called at build time and lets you specify which paths you want to pre-render.
+也就是说预渲染的页面 **路径** 依赖外部数据。Next.js 的解决方案是让你从动态 page 文件(例如 `pages/posts/[id].js`)里`export` 一个名叫 `getStaticPaths` 的 `async` 函数。这个函数会在构建时调用，它允许你指定想要预渲染的路径。
 
 ```
 // This function gets called at build time
@@ -151,7 +153,7 @@ export async function getStaticPaths() {
 }
 ```
 
-Also in `pages/posts/[id].js`, you need to export `getStaticProps` so that you can fetch the data about the post with this `id` and use it to pre-render the page:
+当然在 `pages/posts/[id].js` 里, 你仍需要导出 `getStaticProps` 这样你才能获取到与这个 `id` 相绑定的数据，并将其预渲染到页面上：
 
 ```
 function Post({ post }) {
@@ -169,44 +171,44 @@ export async function getStaticProps({ params }) {
   const res = await fetch(`https://.../posts/${params.id}`)
   const post = await res.json()
 
-  // Pass post data to the page via props
+  // Pass post data to 页面 via props
   return { props: { post } }
 }
 
 export default Post
 ```
 
-To learn more about how `getStaticPaths` works, check out the [Data Fetching documentation](/docs/basic-features/data-fetching.md#getstaticpaths-static-generation).
+> 更多关于 `getStaticPaths` 原理，请看 [Data Fetching documentation](/docs/basic-features/data-fetching.md#getstaticpaths-static-generation).
 
-### When should I use Static Generation?
+### 何时使用纯静态生成?
 
-We recommend using **Static Generation** (with and without data) whenever possible because your page can be built once and served by CDN, which makes it much faster than having a server render the page on every request.
+我们推荐尽可能地使用 **纯静态生成** (无论有无拉取数据的需要)，这样页面可以一次性构建完成，通过 CDN 分发，这样就比每次请求时都由服务器渲染一次要快得多。
 
-You can use Static Generation for many types of pages, including:
+你可以纯静态生成各种页面，包括：
 
-- Marketing pages
-- Blog posts
-- E-commerce product listings
-- Help and documentation
+- 市场营销
+- 博客
+- 电商产品展示
+- 帮助文档
 
-You should ask yourself: "Can I pre-render this page **ahead** of a user's request?" If the answer is yes, then you should choose Static Generation.
+需要考虑清楚："能否在用户请求 **之前** 就预渲染这个页面？"结果肯定的话，就应当使用纯静态生成.
 
-On the other hand, Static Generation is **not** a good idea if you cannot pre-render a page ahead of a user's request. Maybe your page shows frequently updated data, and the page content changes on every request.
+换言之，纯静态生成就 **不** 适用于你无法在用户请求之前就预渲染页面的场景. 或许页面展示的是需要频繁更新的数据，或者页面内容在每次请求后都要变化.
 
-In cases like this, you can do one of the following:
+这种情境下，可以采用以下的方案：
 
-- Use Static Generation with **Client-side Rendering:** You can skip pre-rendering some parts of a page and then use client-side JavaScript to populate them. To learn more about this approach, check out the [Data Fetching documentation](/docs/basic-features/data-fetching.md#fetching-data-on-the-client-side).
-- Use **Server-Side Rendering:** Next.js pre-renders a page on each request. It will be slower because the page cannot be cached by a CDN, but the pre-rendered page will always be up-to-date. We'll talk about this approach below.
+- 半静态生成半 **客户端渲染** ：你可以跳过页面中某些部分的预渲染，然后使用客户端的 JS 生成它们。更多关于这种方法，请看[Data Fetching documentation](/docs/basic-features/data-fetching.md#fetching-data-on-the-client-side).
+- 使用 **服务端渲染** ：Next.js 可以在每个请求时预渲染单个页面。这样会减慢访问速度，因为页面无法再由 CDN 缓存，但预渲染得到的页面将总会更新。我们这就开始讨论这种方法。
 
-## Server-side Rendering
+## 服务端渲染
 
-> Also referred to as "SSR" or "Dynamic Rendering".
+> 也即 "SSR" 或 "动态渲染"。
 
-If a page uses **Server-side Rendering**, the page HTML is generated on **each request**.
+如果一个页面使用 **服务端渲染**, 页面 HTML 是在 **每次请求时** 生成的。
 
-To use Server-side Rendering for a page, you need to `export` an `async` function called `getServerSideProps`. This function will be called by the server on every request.
+要将一个页面变成服务端渲染，你需要 `export` 一个 叫`getServerSideProps` 的 `async` 函数。这个函数会在每次请求时由服务器执行。
 
-For example, suppose that your page needs to pre-render frequently updated data (fetched from an external API). You can write `getServerSideProps` which fetches this data and passes it to `Page` like below:
+例如，假设页面需要预渲染经常更新的数据(从外部 API 拉取)。你可以像下面这样编写 `getServerSideProps` 来获取数据并把它传给 `Page`：
 
 ```
 function Page({ data }) {
@@ -226,13 +228,13 @@ export async function getServerSideProps() {
 export default Page
 ```
 
-As you can see, `getServerSideProps` is similar to `getStaticProps`, but the difference is that `getServerSideProps` is run on every request instead of on build time.
+如你所见，`getServerSideProps` 很像 `getStaticProps`, 但它俩的不同之处在于 `getServerSideProps` 是运行在每次请求时，而非构建时。
 
-To learn more about how `getServerSideProps` works, check out our [Data Fetching documentation](/docs/basic-features/data-fetching.md#getserversideprops-server-side-rendering)
+> 了解更多 `getServerSideProps` 原理，请看[Data Fetching documentation](/docs/basic-features/data-fetching.md#getserversideprops-server-side-rendering)
 
-## Summary
+## 总结
 
-We've discussed two forms of pre-rendering for Next.js.
+我们讨论了两种形式的预渲染 for Next.js.
 
-- **Static Generation (Recommended):** The HTML is generated at **build time** and will be reused on each request. To make a page use Static Generation, either export the page component, or export `getStaticProps` (and `getStaticPaths` if necessary). It's great for pages that can be pre-rendered ahead of a user's request. You can also use it with Client-side Rendering to bring in additional data.
-- **Server-side Rendering:** The HTML is generated on **each request**. To make a page use Server-side Rendering, export `getServerSideProps`. Because Server-side Rendering results in slower performance than Static Generation, use this only if absolutely necessary.
+- **纯静态生成 (建议使用)** ：HTML 在 **构建时** 生成并且每次请求时都能复用。要使用纯静态生成技术, 既要导出页面组件，又要导出 `getStaticProps` (也许还有 `getStaticPaths`)。这有助于那些能在用户访问前就预渲染的页面。你也可以在其中插入客户端渲染以获取额外数据。
+- **服务端渲染** ： HTML 在 **每次请求** 时渲染。要让页面在服务端渲染，就要导出 `getServerSideProps`。由于服务端渲染性能略差于纯静态生成，建议只在必要时使用。

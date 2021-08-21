@@ -1,52 +1,52 @@
 ---
-title: Markdown Examples
+title: Markdown 语法示例
 date: 2021/3/19
-description: View examples of all possible Markdown options.
-tag: web development
-author: You
+description: 全部可能的 Markdown 语法演示.
+tag: 前端
+author: ShiftWatchOut
 ---
 
-# Markdown Examples
+# Markdown 一级标题
 
-## h2 Heading
+## h2 二级标题
 
-### h3 Heading
+### h3 三级标题
 
-#### h4 Heading
+#### h4 四级标题
 
-##### h5 Heading
+##### h5 五级标题
 
-###### h6 Heading
+###### h6 六级标题
 
-## Emphasis
+## 强调内容
 
-**This is bold text**
+**粗体**
 
-_This is italic text_
+_斜体_
 
-~~Strikethrough~~
+~~删除线~~
 
-## Blockquotes
+## 引用
 
 > Develop. Preview. Ship. – Vercel
 
-## Lists
+## 列表
 
-Unordered
+无序列表
 
 - Lorem ipsum dolor sit amet
 - Consectetur adipiscing elit
 - Integer molestie lorem at massa
 
-Ordered
+有序列表
 
 1. Lorem ipsum dolor sit amet
 2. Consectetur adipiscing elit
 3. Integer molestie lorem at massa
 
-## Code
+## 代码
 
-Inline `code`
+行内 `code`
 
 ```
 export default function Nextra({ Component, pageProps }) {
@@ -73,21 +73,21 @@ export default function Nextra({ Component, pageProps }) {
 }
 ```
 
-## Tables
+## 表格
 
-| **Option** | **Description**                                                                                                             |
+| **选项** | **描述**                                                                                                             |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------- |
 | First      | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. |
 | Second     | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. |
 | Third      | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. |
 
-## Links
+## 链接
 
 - [Next.js](https://nextjs.org)
 - [Nextra](https://nextra.vercel.app/)
 - [Vercel](http://vercel.com)
 
-### Footnotes
+## 角标
 
 - Footnote [^1].
 - Footnote [^2].
