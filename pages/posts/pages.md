@@ -2,7 +2,7 @@
 title: Next.js Pages
 date: 2021/3/18
 description: 学习有关 Next.js pages.
-tag: 前端
+tag: 前端, React
 author: ShiftWatchOut
 ---
 
