@@ -1,0 +1,61 @@
+---
+title: Hexxo World
+date: 2019/2/10
+description: 在Github Page上用 Hexo 搭建博客纪录
+tag: 前端
+author: ShiftWatchOut
+---
+
+# 第一步：本地安装 Hexo
+
+安装命令：
+`npm install hexo -g`
+
+初始化：
+
+```
+hexo init blog
+cd blog
+npm install
+hexo s
+```
+
+# 第二步：推送至 Github Pages
+
+设置根目录 `_config.yml`：
+
+- 这样是中文，不写是英文
+  `language: zh-CN`
+
+- `url: [Your website address](https://shiftwatchout.github.io/)`
+
+- 根目录在哪里。Github 就写斜杠，有些服务器会多些路径
+  `root: /`
+
+- 这样可以在 `/source` 里面放一个 README.md，推送的时候自动传到 Github 上面
+  `skip_render: README.md`
+
+- 换主题
+  `theme: landscape`
+
+- 推送至 Github
+
+```
+deploy:
+  type: git
+  repository: https://github.com/ShiftWatchOut/shiftwatchout.github.io.git
+  branch: master
+```
+
+# 第三步：编辑新文章
+
+在博客的根目录下才能运行以下命令，创建新 article
+`hexo new "blog name"`
+进入`source/_posts`文件夹编辑`blog-name.MD`(空格、加号会变短横)
+推送代码：`hexo g -d`
+
+# 常见错误
+
+1. `ERROR Deployer not found: git`：处理方法 `npm install hexo-deployer-git --save`
+
+> 参考: [Github Pages(三)：使用 Hexo 博客生成工具](https://hans2936.github.io/2018/06/06/HexoLog/) 、[Mastering Markdown·Github](https://guides.github.com/features/mastering-markdown/)
