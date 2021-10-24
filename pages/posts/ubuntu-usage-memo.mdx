@@ -1,0 +1,92 @@
+---
+title: Ubuntu 使用备忘录
+date: 2019/11/7
+description: 个人常用命令
+tag: JS, Ubuntu
+author: ShiftWatchOut
+---
+
+# Ubuntu 使用备忘录
+
+## 安装 nodejs
+
+在 Linux 上使用 node 比较麻烦，要么是直接 clone 仓库下来自己编译，要么是下载二进制文件，通过软链接、配置 bash 环境变量的方式来使用，配置过程较为复杂。这里记录两种傻瓜式在 Ubuntu 上安装 node 的方法
+
+#### 1.使用自带包管理器安装[^1]
+
+首先将 nodesource 添加到软件源中，可直接执行命令
+
+```
+$ curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+```
+
+更新 APT 源
+
+```
+$ sudo apt-get update
+```
+
+通过 APT 安装
+
+```
+$ sudo apt-get install -y nodejs
+```
+
+检查 nodejs 版本
+
+```
+$ node -v
+```
+
+升级 node 至最新 LTS 版本：将上面 curl 那一步的 node 版本改为最新的稳定版，源里的 URL 会被自动更改，再更新 APT 源，然后使用更新命令，
+
+```
+$ sudo apt upgrade
+```
+
+升级后清理掉旧版本。
+
+```
+$ sudo apt autoclean
+```
+
+#### 2.通过安装 yarn 使用其安装过程自动的 node[^2]
+
+首先同样是设置源
+
+```
+$ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+$ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+```
+
+然后就是更新与安装，执行一下命令默认会安装一个 nodejs，可以通过传入 `--no-install-recommends` 来取消过程中 node 的安装。yarn 提供的 nodejs 版本可能不是最新稳定版，可通过 nvm 进行管理。
+
+```
+$ sudo apt update && sudo apt install yarn
+```
+
+不使用 yarn 提供的 nodejs
+
+```
+$ sudo apt update && sudo apt install --no-install-recommends yarn
+```
+
+yarn 安装成功之后可能会遇到通过它安装的 global 包无法使用的情况。这时需要在你的 shell 配置文件（`.profile`，`.bash_profile`，`.bashrc`，`.zshrc` 等等）里额外做些设置才能正常使用。
+
+针对 bash，添加
+
+```
+export PATH="$PATH:`yarn global bin`"
+```
+
+## mongo 使用
+
+本地使用 mongo 前先启动服务，不然进不了命令行工具，然后 mongo
+
+```
+$ sudo service mongod start
+```
+
+[^1]: [Nodesource GitHub 链接](https://github.com/nodesource/distributions/blob/master/README.md) 包含了其他操作系统和 node 版本的安装方式
+
+[^2]: [yarn 中文安装文档](https://yarn.bootcss.com/docs/install/#debian-stable) 由于 yarn 版本更新，文档网站迭代，原英文官网[相关安装方法](https://classic.yarnpkg.com/en/docs/install#debian-stable)的内容可能会消失，只好引用中文网
