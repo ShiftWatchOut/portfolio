@@ -60,3 +60,15 @@ $ git config --global -e
 ```
 
 vscode 是一个很方便的编辑器，编辑器本身再加上里面丰富强大的插件，进行版本管理很舒服。但 Windows 上的 VSC 似乎有些问题，修改了配置并保存后，会有报错，如果要进行保存的修改，还是用 vim 吧
+
+## git rebase
+
+变基能够在 git 提交历史上创造线性的提交记录，相比于 merge 更易于使用二分法的方式查找 bug 是更推荐的一种合并分支的方式
+
+```
+$ git pull -r # 拉取时使用 rebase，r means rebase
+$ git checkout dev
+$ git rebase target # 将当前分支的提交放到 target 的最新提交前面
+$ git checkout target
+$ git rebase dev # 至此 target 与 dev 完全同步
+```
