@@ -1,87 +1,69 @@
 #!/usr/bin/env node
 
-const figlet = require('figlet')
-const inquirer = require('inquirer')
 const fs = require('fs/promises')
-const fuzzy = require('fuzzy')
-const chalk = require('chalk')
-const { dir, log } = require('console')
-const CheckboxPlusPrompt = require('./inpuire-plugin')
-log(figlet.textSync('Welcome', {
-    font: 'Doom',
-    horizontalLayout: 'fitted',
-    whitespaceBreak: true,
-}));
-var colors = [
-    { name: 'The red color', value: 'red', short: 'red', disabled: false },
-    { name: 'The blue color', value: 'blue', short: 'blue', disabled: true },
-    { name: 'The green color', value: 'green', short: 'green', disabled: false },
-    { name: 'The yellow color', value: 'yellow', short: 'yellow', disabled: false },
-    { name: 'The black color', value: { name: 'black' }, short: 'black', disabled: false }
-];
-log(chalk.blue('hello'));
-inquirer.registerPrompt('checkbox-plus', CheckboxPlusPrompt)
+const { log, error } = require('console')
+const path = require('path')
+const prompts = require('prompts')
+const { reset, red, yellow } = require('kolorist')
+
+const initialFilename = 'new-post.md'
+const initial = {
+    title: 'New Post',
+    description: 'description text',
+    tag: '',
+    date: (new Date()).toLocaleDateString()
+}
+const postsFolder = path.join(__dirname, '..', 'pages', 'posts')
+log(`今天: ${initial.date}， 又努力创作了呢！${yellow('☀ ☀ ☀ ☀ ☀ ☀')}`)
 const run = async () => {
+    let result = {}
     try {
-        const options = await inquirer.prompt([{
-            name: 'title',
-            type: 'input',
-            message: '博客标题：',
-            default: '新博客'
-        }, {
-            name: 'filename',
-            type: 'input',
-            message: '文件名：',
-            default: 'new-post'
-        }, {
-            name: 'tag',
-            type: 'input',
-            message: '设置一个标签：',
-            default: 'new-post'
-        }, {
-            name: 'tags',
-            type: 'checkbox-plus',
-            message: '输入标签：',
-            default: ['yellow', 'red', { name: 'black' }],
-            validate: function (answer) {
-
-                if (answer.length == 0) {
-                    return 'You must choose at least one color.';
-                }
-
-                return true;
-
+        result = await prompts([
+            {
+                name: 'title',
+                type: 'text',
+                message: reset('博文标题'),
+                initial: initial.title,
             },
-            source: function (answersSoFar, input) {
-
-                input = input || '';
-
-                return new Promise(function (resolve) {
-
-                    var fuzzyResult = fuzzy.filter(input, colors, {
-                        extract: function (item) {
-                            return item['name'];
-                        }
-                    });
-
-                    var data = fuzzyResult.map(function (element) {
-                        return element.original;
-                    });
-
-                    resolve(data);
-
-                }).catch((err) => {
-                        console.warn('err:::::::', err);
-                    }
-                );
-
-            }
-        }])
-        dir(options)
-    } catch (error) {
-        log(chalk.redBright("Something error。。。"))
-        log(error)
+            {
+                name: 'filename',
+                type: 'text',
+                message: reset('MD 文件名'),
+                initial: initialFilename
+            },
+            {
+                name: 'description',
+                type: 'text',
+                message: reset('描述文字'),
+                initial: initial.description
+            },
+            {
+                name: 'tag',
+                type: 'text',
+                choices: [],
+                message: reset('标签分类'),
+                initial: initial.tag
+            },
+        ],
+        {
+            onCancel: () => { throw new Error(red('✖') + ' 已取消操作') }
+        })
+    } catch (err) {
+        log(err.message)
+        return
     }
+
+    const templateFile = await fs.readFile(path.join(__dirname, './template/index.md'))
+    let str = templateFile.toString('utf-8')
+    const targetFilename = result.filename
+    for (const key in initial) {
+        if (Object.hasOwnProperty.call(initial, key)) {
+            str = str.replace(/{{ (\w+) }}/g, (match, $1) => result[$1]||initial[$1])
+        }
+    }
+    await fs.writeFile(path.join(postsFolder, targetFilename), str)
 }
 
-run()
+run().catch(err => {
+    error(red('外部错误：'), err)
+})
