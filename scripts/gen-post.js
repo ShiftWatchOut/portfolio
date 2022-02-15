@@ -5,6 +5,7 @@ const { log, error } = require('console')
 const path = require('path')
 const prompts = require('prompts')
 const { reset, red, yellow } = require('kolorist')
+const { execSync } = require('child_process')
 
 String.prototype.replaceAll = function (targetStr, newStr) {
     let sourceStr = this.valueOf()
@@ -74,6 +75,7 @@ const run = async () => {
         }
     }
     await fs.writeFile(path.join(postsFolder, targetFilename), str)
+    execSync(`code ${path.join(postsFolder, targetFilename)}`)
 }
 
 const getPostsTags = async () => {
