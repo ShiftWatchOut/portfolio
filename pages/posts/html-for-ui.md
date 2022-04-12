@@ -1,7 +1,7 @@
 ---
 title: 零基础入门路线
 date: 2022/1/28
-description: 写给 UI 看的
+description: 写给 UI 同事看的
 tag: 前端
 author: ShiftWatchOut
 ---
