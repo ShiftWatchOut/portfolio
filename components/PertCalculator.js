@@ -84,7 +84,8 @@ const HiddenInput = (props) => {
     >{props.value}</div>)
 }
 
-const initialState = [['初始任务', 0, 0, 0]]
+const defaultRow = ['默认任务', 0, 0, 0]
+const initialState = [[...defaultRow]]
 
 /**
  * @typedef {{row: number, col: number, value: number, type?: 'update'|'add'|'delete'}} ActionType
@@ -92,12 +93,20 @@ const initialState = [['初始任务', 0, 0, 0]]
  * @param {ActionType} action 
  */
 const reducer = (state, action) => {
+  const newArr = [...state]
   switch (action.type) {
     case 'update':
-      const newArr = [...state]
       const targetRow = [...state[action.row]]
       targetRow[action.col] = action.value
       newArr[action.row] = targetRow
+      return newArr
+    case 'add':
+      newArr.push([...defaultRow])
+      return newArr
+    case 'delete':
+      if (newArr.length > 1) {
+        newArr.splice(-1)
+      }
       return newArr
     default:
       throw new Error('未曾设想的 action type' + JSON.stringify(action));
@@ -113,10 +122,15 @@ const PertCalculator = () => {
         .pert-table {
           text-align: center;
           table-layout: fixed;
+          word-break: keep-all;
+          white-space: nowrap;
+        }
+        .pert-table tfoot tr {
+          border-top: 1px solid gray;
         }
       `}</style>
       <table className='pert-table'>
-        <caption><h3>Pert 计算器</h3></caption>
+        <caption><h3>PERT 计算器</h3></caption>
         <thead>
           <tr>
             {theadList.map((head) => <th key={head}>{head}</th>)}
@@ -139,6 +153,13 @@ const PertCalculator = () => {
             <td>{getSigma(row[1], row[2], row[3])}</td>
           </tr>)}
         </tbody>
+        <tfoot>
+          <tr>
+            <td><button onClick={() => { dispatch({ type: 'add' }) }}>➕新增一个</button></td>
+            <td><button onClick={() => { dispatch({ type: 'delete' }) }}>⛔删除上个</button></td>
+            <td>最少一个</td>
+          </tr>
+        </tfoot>
       </table>
     </div>
   )

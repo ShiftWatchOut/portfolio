@@ -1,12 +1,38 @@
 ---
-title: PERT预估
+title: PERT 预估
 date: 2022/6/4
 tag: JS, diary
-description: 《clean coder： 程序员的职业素养》
+description: 出自《代码整洁之道： 程序员的职业素养》
 author: ShiftWatchOut
 ---
 import PertCalculator from "../../components/PertCalculator";
 
-# PERT预估
+# PERT 预估
+
+计划评审技术（PERT，Program Evaluation and Review Technique）的一部分内容就是对预估的计算方法。
+
+根据3个数字预估某项任务。这就是三元分析法。
+
+* O：乐观预估。这是非常乐观的数字。为保证乐观预估有意义，这个数字对应的发生概率应当小于1%。
+
+* N：标称预估。这是概率最大的数字。
+
+* P：悲观预估。这是最糟糕的数字。为保证悲观预估有意义，这个数字对应的发生概率也应当小于1%。
+
+有了以上三个预估，可以像下面这样描述概率分布：
+
+```
+  μ=(O+4N+P)/6
+```
+
+μ是任务的期望完成时间。通常这个数字都有点水分
+
+```
+  σ=(P-O)/6
+```
+
+σ 是这个任务的概率分布的标准差，用来衡量不确定性。如果这个数字很大，就表示非常不确定。
+
+下面是一个简易的 PERT 计算器，可以进行以上值的计算：
 
 <PertCalculator />
