@@ -118,9 +118,6 @@ const PertCalculator = () => {
   const [tableData, dispatch] = useReducer(reducer, initialState)
   return (
     <div>
-      <button onClick={() => {
-        throw new Error("Sentry Frontend Error From Main Branch");
-      }}>Throw error</button>
       <style jsx>{`
         .pert-table {
           text-align: center;
@@ -164,9 +161,6 @@ const PertCalculator = () => {
           </tr>
         </tfoot>
       </table>
-      <button onClick={() => {
-        throw new Error("Sentry Frontend Error Online");
-      }}>Throw error</button>
     </div>
   )
 }
