@@ -161,6 +161,9 @@ const PertCalculator = () => {
           </tr>
         </tfoot>
       </table>
+      <button onClick={() => {
+        throw new Error("Sentry Frontend Error Online");
+      }}>Throw error</button>
     </div>
   )
 }
