@@ -1,0 +1,5 @@
+{
+    "cssModules.pathAlias": {
+        "/styles/": "${workspaceFolder}/styles/"
+    }
+}

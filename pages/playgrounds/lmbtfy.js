@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from "/styles/lmbtfy.module.scss"
+import styles from "../../styles/lmbtfy.module.scss"
 
 const Lmbtfy = () => {
   return (
@@ -23,7 +23,7 @@ const Lmbtfy = () => {
         <form id={styles.search_form}>
           <div className={styles.search_form_group}>
             <div className={styles.search_form_input}>
-              <input type={"search"} id="kw" maxLength={255} required />
+              <input type={"search"} id="kw" autoComplete='off' maxLength={255} required />
             </div>
             <button id={styles.search_submit}>百度一下</button>
           </div>
