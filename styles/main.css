@@ -5,6 +5,7 @@
   font-display: block;
   src: url(/fonts/Inter-roman.latin.var.woff2) format('woff2');
 }
+
 @font-face {
   font-family: 'Inter var';
   font-style: italic;
@@ -25,6 +26,7 @@ body {
   font-variant: common-ligatures contextual;
   letter-spacing: -0.02em;
 }
+
 b,
 strong,
 h3,
@@ -33,15 +35,17 @@ h5,
 h6 {
   font-variation-settings: 'wght' 650;
 }
+
 h1 {
   font-variation-settings: 'wght' 850;
 }
+
 h2 {
   font-variation-settings: 'wght' 750;
 }
 
 @media screen and (min-device-pixel-ratio: 1.5),
-  screen and (min-resolution: 1.5dppx) {
+screen and (min-resolution: 1.5dppx) {
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -62,4 +66,33 @@ img.next-image {
 
 .nav-line .nav-link {
   color: #69778c;
+}
+
+a.insite-card {
+  padding: .8rem 1rem;
+  border-radius: .5rem;
+  background-color: var(--card-bg);
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: calc(50% - 0.5rem);
+  text-decoration: none;
+  word-break: break-word;
+  color: #5d676a;
+  display: block;
+  background-color: #f3f3f3;
+}
+
+a.insite-card:hover {
+  opacity: .7;
+}
+
+a.insite-card h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+a.insite-card p {
+  margin: .25rem 0 0;
+  color: #7d8b8f;
 }

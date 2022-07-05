@@ -1,0 +1,25 @@
+---
+type: page
+title: 游乐场
+date: 2022-07-05
+---
+
+# 游乐场
+
+<div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+  <Insite title="ECS 概念分享 slide" url="https://slide-ecs.vercel.app/" description="妹有描述" />
+  <Insite title="ECSY + PIXI.JS" url="https://ecs-pixi.vercel.app/" description="开始用 ECS 做些实践啦" />
+  <Insite title="让我帮你百度一下" url="/playgrounds/lmbtfy" description="伸手党狂喜" />
+</div>
+
+export function Insite({ title, url, description }) {
+  const H3 = 'h3'
+  return (
+    <a className="insite-card block font-semibold" href={url} target="_blank">
+      <H3>
+        {title}
+      </H3>
+      <p>{description}</p>
+    </a>
+  );
+}
