@@ -7,9 +7,6 @@
     .logo {
         margin: 20vh 0 3vh 0;
 
-        &>*:nth-of-child(1) {
-            margin: 0 4px;
-        }
     }
 
     #search_form {
@@ -74,7 +71,43 @@
     }
 
     .info {
-        color: #666
+        color: #666;
+        flex-grow: 1;
+
+        .copy_board {
+            text-align: center;
+            margin-top: 30px;
+
+            textarea {
+                border: 1px solid;
+                border-color: #999;
+                width: 40vw;
+                font-size: 14px;
+                padding: 5px 10px;
+                color: #000;
+                outline: none;
+                word-break: break-all;
+                border-radius: 6px;
+
+                &:focus {
+                    border-color: #4285f4;
+                    box-shadow: 0 0 2px #4285f4;
+                }
+            }
+
+            .buttons {
+                display: flex;
+                justify-content: space-between;
+                padding: 6px;
+
+                button {
+                    background-color: cornflowerblue;
+                    border-radius: 4px;
+                    padding: 2px 8px;
+                    color: white;
+                }
+            }
+        }
     }
 
     .warning {
