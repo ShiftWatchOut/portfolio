@@ -5,35 +5,41 @@ description: 个人常用 git 操作备忘，反正 Linux 和 git 都来自 Linu
 tag: Ubuntu
 author: ShiftWatchOut
 ---
+
 # git 操作
 
 ## 初始化
+
 直接使用 `git init`，一路 yes 下来，把当前文件夹变成一个新的代码仓库，无需联网也可以完成版本控制的功能。
 
 ## git 配置
+
 为了在互联网上被唯一地识别，我们需要设置 git 的用户名和邮箱，终端输入：
 
 ```
 $ git config --global user.name "名字"
 $ git config --global user.email example@example.com
 ```
+
 设置好后可以通过 `git config --list` 查看信息。
 
 ## ssh key 生成
+
 ```
 $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ```
 
-新的 ssh 公密钥会生成到用户根目录的 .ssh/ 文件夹下，默认文件名会是id_rsa、id_rsa.pub，查看并复制 *.pub 文件的内容。
+新的 ssh 公密钥会生成到用户根目录的 .ssh/ 文件夹下，默认文件名会是 id_rsa、id_rsa.pub，查看并复制 \*.pub 文件的内容。
 
 ssh-add ~/.ssh/id_rsa 将 ssh 密钥添加到 ssh-agent
 
 ## Github 远端设置
+
 ```
 Settings > SSH and GPG keys > New SSH key
 ```
 
-在 Key 的输入框中粘贴 *.pub 文件里的所有内容，然后保存。可以在多个设备上生成多个独立的 ssh key 再到 GitHub New 多个远端 ssh key。
+在 Key 的输入框中粘贴 \*.pub 文件里的所有内容，然后保存。可以在多个设备上生成多个独立的 ssh key 再到 GitHub New 多个远端 ssh key。
 
 新建仓库，复制仓库页的 git ssh 链接，返回到终端，设置 本地仓库的远端源：
 
@@ -53,7 +59,7 @@ $ git pull -r
 
 ## 设置 git
 
-通过编辑器打开 git 设置，文件位置通常是 ~/.gitconfig。如果在安装时没有指定编辑器，默认打开配置/进行rebase时的编辑器会是 vim，可以通过设置 core.editor 属性指定其他编辑器
+通过编辑器打开 git 设置，文件位置通常是 ~/.gitconfig。如果在安装时没有指定编辑器，默认打开配置/进行 rebase 时的编辑器会是 vim，可以通过设置 core.editor 属性指定其他编辑器
 
 ```
 $ git config --global -e
@@ -72,3 +78,24 @@ $ git rebase target # 将当前分支的提交放到 target 的最新提交前�
 $ git checkout target
 $ git rebase dev # 至此 target 与 dev 完全同步
 ```
+
+## 通过代理加速拉取
+
+最近(2022.07)突然不能在我的 Windows 电脑上拉取 Github 的代码了，之前有设置过 proxy，通过 `git config --global -e` 或直接打开在 `.gitconfig` 文件，写入如下配置，`port` 对应代理软件的 port：
+
+```
+[http]
+	proxy = socks5://127.0.0.1:port
+[https]
+	proxy = socks5://127.0.0.1:port
+```
+
+用了好久一直都没出问题，诡异的是，我在不能拉代码的时候网上一搜，发现这玩意还要设置 ssh 的一些东西，在 `.ssh\config` 中配置如下，才能正常使用：
+
+```
+Host github.com
+    User git
+    ProxyCommand connect -S 127.0.0.1:port %h %p
+```
+
+那我以前是怎么用上加速的，惊了
