@@ -28,7 +28,7 @@ const PERSISTENCE = {
 
 const Lmbtfy = () => {
   const [searchValue, setSearchValue] = useState("")
-  const url = useRef("")
+  const [previewUrl, setPreviewUrl] = useState('')
   const qRef = useRef("")
   /** @type {import('react').RefObject<HTMLInputElement>} */
   const inputRef = useRef(null)
@@ -107,17 +107,17 @@ const Lmbtfy = () => {
   const handleCopy = () => {
     navigator.permissions.query({ name: "clipboard-write" }).then((result) => {
       if (["granted", "prompt"].includes(result.state)) {
-        navigator.clipboard.writeText(url.current).then(() => {
+        navigator.clipboard.writeText(previewUrl).then(() => {
           alert('复制成功')
         }).catch((e) => {
-          alert(`错误：${JSON.stringify(e)}`)
+          alert(`错误：${JSON.stringify(e)}\n请自行手动复制`)
         })
       }
     })
   }
 
   const handlePreview = () => {
-    window.open(url.current)
+    window.open(previewUrl)
   }
 
   return (
@@ -149,7 +149,7 @@ const Lmbtfy = () => {
           onSubmit={(e) => {
             e.preventDefault()
             setStatePhase(1)
-            url.current = `${location.origin}${location.pathname}?q=${searchValue}`
+            setPreviewUrl(`${location.origin}${location.pathname}?q=${searchValue}`)
             setCopyBoardVisible(true)
             console.log('searchValue', searchValue);
           }}
@@ -174,8 +174,8 @@ const Lmbtfy = () => {
         <div className={styles.info} >
           {infoText}
           {
-            copyBoardVisible && searchValue && <div className={styles.copy_board}>
-              <textarea value={url.current} readOnly></textarea>
+            copyBoardVisible && <div className={styles.copy_board}>
+              <textarea value={previewUrl} readOnly></textarea>
               <div className={styles.buttons} >
                 <button onClick={handleCopy}>复 制</button>
                 <button onClick={handlePreview}>预 览</button>
