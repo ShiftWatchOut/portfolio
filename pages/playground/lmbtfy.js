@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { useEffect, useRef, useState } from 'react'
 import styles from "../../styles/lmbtfy.module.scss"
-import { sleep } from '../../utils'
+import { copy, sleep } from '../../utils'
 
 const infos = {
   withQ: [
@@ -96,7 +96,7 @@ const Lmbtfy = () => {
       setAnimating(true)
     }
   }, [q])
-  // springRef.pause()
+
   useEffect(() => {
     return () => {
       springRef.stop()
@@ -105,15 +105,7 @@ const Lmbtfy = () => {
   }, [])
 
   const handleCopy = () => {
-    navigator.permissions.query({ name: "clipboard-write" }).then((result) => {
-      if (["granted", "prompt"].includes(result.state)) {
-        navigator.clipboard.writeText(previewUrl).then(() => {
-          alert('复制成功')
-        }).catch((e) => {
-          alert(`错误：${JSON.stringify(e)}\n请自行手动复制`)
-        })
-      }
-    })
+    copy(previewUrl)
   }
 
   const handlePreview = () => {
