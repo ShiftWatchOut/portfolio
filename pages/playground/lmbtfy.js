@@ -1,8 +1,10 @@
+import { animated, useSpring, useSpringRef } from '@react-spring/web'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { useEffect, useRef, useState } from 'react'
 import styles from "../../styles/lmbtfy.module.scss"
+import { sleep } from '../../utils'
 
 const infos = {
   withQ: [
@@ -18,19 +20,86 @@ const infos = {
   ]
 }
 
+const offset = 10
+
+const PERSISTENCE = {
+  animating: false
+}
+
 const Lmbtfy = () => {
   const [searchValue, setSearchValue] = useState("")
   const url = useRef("")
+  const qRef = useRef("")
+  /** @type {import('react').RefObject<HTMLInputElement>} */
+  const inputRef = useRef(null)
+  /** @type {import('react').RefObject<HTMLButtonElement>} */
+  const buttonRef = useRef(null)
+  /** @type {import('react').RefObject<HTMLImageElement>} */
+  const aniImageRef = useRef(null)
+  const springRef = useSpringRef()
+  const style = useSpring({
+    loop: true,
+    to: async (next, cancel) => {
+      await sleep()
+      if (PERSISTENCE.animating) {
+        setStatePhase(1)
+      } else {
+        return
+      }
+      const imageCurrent = aniImageRef.current
+      const inputCurrent = inputRef.current
+      const buttonCurrent = buttonRef.current
+      const inputPos = inputCurrent?.getBoundingClientRect()
+      await next({ x: inputPos.x + offset, y: inputPos.y + offset });
+      imageCurrent.classList.add(styles.clicking)
+      inputCurrent?.focus()
+      if (PERSISTENCE.animating) {
+        setStatePhase(2)
+        setSearchValue(qRef.current)
+      } else {
+        return
+      }
+      await sleep()
+      imageCurrent.classList.remove(styles.clicking)
+      const buttonPos = buttonCurrent?.getBoundingClientRect()
+      if (PERSISTENCE.animating) {
+        setStatePhase(3)
+      } else {
+        return
+      }
+      await next({ x: buttonPos.x + offset, y: buttonPos.y + offset });
+      imageCurrent.classList.add(styles.clicking)
+      await sleep()
+      imageCurrent.classList.remove(styles.clicking)
+      window.location.replace(`https://www.baidu.com/s?ie=utf-8&wd=${qRef.current}`)
+    },
+    from: {
+      x: 0,
+      y: 0,
+    },
+    ref: springRef,
+    delay: 1000
+  })
   const [statePhase, setStatePhase] = useState(0)
   const [copyBoardVisible, setCopyBoardVisible] = useState(false)
-  const nextPhase = () => setStatePhase((c) => c + 1)
   const router = useRouter()
   const q = router.query.q
   // 有参数时默认进来要开始动画
-  const [animating, setAnimating] = useState(!!q)
-  const infoText = q ? infos.withQ[statePhase] : infos.withOutQ[statePhase]
+  const withQ = !!q
+  const [animating, setAnimating] = useState(withQ)
+  const infoText = animating ? infos.withQ[statePhase] : infos.withOutQ[statePhase]
+  useEffect(() => {
+    if (q) {
+      qRef.current = q
+      springRef.start()
+      PERSISTENCE.animating = true
+      setAnimating(true)
+    }
+  }, [q])
+  // springRef.pause()
   useEffect(() => {
     return () => {
+      springRef.stop()
       setSearchValue("")
     }
   }, [])
@@ -63,6 +132,9 @@ const Lmbtfy = () => {
         }
       `}</style>
       <section className={styles.content}>
+        <animated.div ref={aniImageRef} className={styles.animated_arrow} style={animating ? style : { display: 'none' }}>
+          <img src='/images/arrow.png' />
+        </animated.div>
         <div className={styles.logo}>
           <span>让我帮你</span>
           &nbsp;
@@ -76,7 +148,7 @@ const Lmbtfy = () => {
           id={styles.search_form}
           onSubmit={(e) => {
             e.preventDefault()
-            nextPhase()
+            setStatePhase(1)
             url.current = `${location.origin}${location.pathname}?q=${searchValue}`
             setCopyBoardVisible(true)
             console.log('searchValue', searchValue);
@@ -85,6 +157,7 @@ const Lmbtfy = () => {
           <div className={styles.search_form_group}>
             <div className={styles.search_form_input}>
               <input
+                ref={inputRef}
                 value={searchValue} onChange={(e) => {
                   setSearchValue(e.target.value)
                 }}
@@ -95,7 +168,7 @@ const Lmbtfy = () => {
                 required
               />
             </div>
-            <button id={styles.search_submit}>百度一下</button>
+            <button ref={buttonRef} id={styles.search_submit}>百度一下</button>
           </div>
         </form>
         <div className={styles.info} >
@@ -110,6 +183,16 @@ const Lmbtfy = () => {
             </div>
           }
         </div>
+        {
+          animating && <button onClick={() => {
+            springRef.update({ opacity: 0 })
+            springRef.stop()
+            PERSISTENCE.animating = false
+            setSearchValue("")
+            setAnimating(false)
+            setStatePhase(0)
+          }}>快停火，我是友军</button>
+        }
         <footer className={styles.warning} >
           * 本站与百度公司没有任何联系，baidu 以及本站出现的百度公司 Logo 是百度公司的商标
         </footer>

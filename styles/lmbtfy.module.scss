@@ -3,10 +3,43 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+
+    .animated_arrow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 4;
+
+        &.clicking::after {
+            position: absolute;
+            top: 0;
+            left: -5px;
+            content: '';
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 5px solid #999;
+            animation-name: click;
+            animation-duration: 1s;
+            animation-timing-function: ease;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes click {
+            from {
+                transform: scale(1);
+                opacity: 1;
+            }
+            to {
+                transform: scale(4);
+                opacity: .1;
+            }
+        }
+    }
 
     .logo {
         margin: 20vh 0 3vh 0;
-
     }
 
     #search_form {
