@@ -77,11 +77,11 @@ export default function Nextra({ Component, pageProps }) {
 
 ## 表格
 
-| **选项** | **描述**                                                                                                             |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------- |
-| First      | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. |
-| Second     | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. |
-| Third      | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. |
+| **选项** | **描述**                                                                                                                    |
+| -------- | --------------------------------------------------------------------------------------------------------------------------- |
+| First    | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. |
+| Second   | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. |
+| Third    | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. |
 
 ## 链接
 

@@ -7,7 +7,7 @@ async function generate() {
   const feed = new RSS({
     title: 'Watch Out',
     site_url: 'https://portfolio-shiftwatchout.vercel.app/',
-    feed_url: 'https://portfolio-shiftwatchout.vercel.app/feed.xml'
+    feed_url: 'https://portfolio-shiftwatchout.vercel.app/feed.xml',
   })
 
   const posts = await fs.readdir(path.join(__dirname, '..', 'pages', 'posts'))
@@ -17,7 +17,7 @@ async function generate() {
       if (name.startsWith('index.')) return
 
       const content = await fs.readFile(
-        path.join(__dirname, '..', 'pages', 'posts', name)
+        path.join(__dirname, '..', 'pages', 'posts', name),
       )
       const frontmatter = matter(content)
 
@@ -27,9 +27,9 @@ async function generate() {
         date: frontmatter.data.date,
         description: frontmatter.data.description,
         categories: frontmatter.data.tag.split(', '),
-        author: frontmatter.data.author
+        author: frontmatter.data.author,
       })
-    })
+    }),
   )
 
   await fs.writeFile('./public/feed.xml', feed.xml({ indent: true }))

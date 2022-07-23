@@ -15,9 +15,7 @@ const getMiu = (o, n, p) => {
       }
     }
     res = (o + n * 4 + p) / 6
-  } catch (_) {
-
-  }
+  } catch (_) {}
   return isPositive(res) ? res.toFixed(1) : 0
 }
 const getSigma = (o, _n, p) => {
@@ -29,29 +27,30 @@ const getSigma = (o, _n, p) => {
       }
     }
     res = (p - o) / 6
-  } catch (_) {
-
-  }
+  } catch (_) {}
   return isPositive(res) ? res.toFixed(1) : 0
 }
 
 /**
- * 
+ *
  * @param {object} props
  * @param {number} props.value
  * @param {() => void} props.onChange
  * @param {'number'|'text'} props.type
  */
 const HiddenInput = (props) => {
-  const [editting, setEditting] = useState(false);
-  const [innerValue, setInnerValue] = useState('');
+  const [editting, setEditting] = useState(false)
+  const [innerValue, setInnerValue] = useState('')
   useEffect(() => {
     setInnerValue(props.value)
   }, [props.value])
 
   const handleFinish = () => {
     setEditting(false)
-    if (!Object.is(innerValue, props.value) && typeof props.onChange === 'function') {
+    if (
+      !Object.is(innerValue, props.value) &&
+      typeof props.onChange === 'function'
+    ) {
       let passedValue = innerValue
       if (props.type === 'number') {
         passedValue = parseInt(passedValue) || 0
@@ -60,11 +59,11 @@ const HiddenInput = (props) => {
       props.onChange(passedValue)
     }
   }
-  return (editting ?
+  return editting ? (
     <input
       style={{
         display: 'inline-block',
-        width: '100%'
+        width: '100%',
       }}
       value={innerValue}
       type={props.type}
@@ -72,16 +71,26 @@ const HiddenInput = (props) => {
         setInnerValue(e.target.value)
       }}
       onBlur={handleFinish}
-      onKeyPress={(e) => { if (e.key === 'Enter') { handleFinish() } }}
+      onKeyPress={(e) => {
+        if (e.key === 'Enter') {
+          handleFinish()
+        }
+      }}
       autoFocus
-    /> :
+    />
+  ) : (
     <div
       style={{
         display: 'inline-block',
-        width: '100%'
+        width: '100%',
       }}
-      onClick={() => { setEditting(true) }}
-    >{props.value}</div>)
+      onClick={() => {
+        setEditting(true)
+      }}
+    >
+      {props.value}
+    </div>
+  )
 }
 
 const defaultRow = ['默认任务', 0, 0, 0]
@@ -89,8 +98,8 @@ const initialState = [[...defaultRow]]
 
 /**
  * @typedef {{row: number, col: number, value: number, type?: 'update'|'add'|'delete'}} ActionType
- * @param {[][]} state 
- * @param {ActionType} action 
+ * @param {[][]} state
+ * @param {ActionType} action
  */
 const reducer = (state, action) => {
   const newArr = [...state]
@@ -109,7 +118,7 @@ const reducer = (state, action) => {
       }
       return newArr
     default:
-      throw new Error('未曾设想的 action type' + JSON.stringify(action));
+      throw new Error('未曾设想的 action type' + JSON.stringify(action))
   }
 }
 
@@ -129,34 +138,61 @@ const PertCalculator = () => {
           border-top: 1px solid gray;
         }
       `}</style>
-      <table className='pert-table'>
-        <caption><h3>PERT 计算器</h3></caption>
+      <table className="pert-table">
+        <caption>
+          <h3>PERT 计算器</h3>
+        </caption>
         <thead>
           <tr>
-            {theadList.map((head) => <th key={head}>{head}</th>)}
+            {theadList.map((head) => (
+              <th key={head}>{head}</th>
+            ))}
           </tr>
         </thead>
         <tbody>
-          {tableData.map((row, rowIdx) => <tr key={rowIdx}>
-            {row.map((col, colIdx) => <td key={`${rowIdx}-${colIdx}`}>
-              <HiddenInput
-                value={col}
-                type={typeof col === 'number' ? 'number' : 'text'}
-                onChange={(v) => dispatch({
-                  type: 'update',
-                  col: colIdx,
-                  row: rowIdx,
-                  value: v,
-                })} />
-            </td>)}
-            <td>{getMiu(row[1], row[2], row[3])}</td>
-            <td>{getSigma(row[1], row[2], row[3])}</td>
-          </tr>)}
+          {tableData.map((row, rowIdx) => (
+            <tr key={rowIdx}>
+              {row.map((col, colIdx) => (
+                <td key={`${rowIdx}-${colIdx}`}>
+                  <HiddenInput
+                    value={col}
+                    type={typeof col === 'number' ? 'number' : 'text'}
+                    onChange={(v) =>
+                      dispatch({
+                        type: 'update',
+                        col: colIdx,
+                        row: rowIdx,
+                        value: v,
+                      })
+                    }
+                  />
+                </td>
+              ))}
+              <td>{getMiu(row[1], row[2], row[3])}</td>
+              <td>{getSigma(row[1], row[2], row[3])}</td>
+            </tr>
+          ))}
         </tbody>
         <tfoot>
           <tr>
-            <td><button onClick={() => { dispatch({ type: 'add' }) }}>➕新增一个</button></td>
-            <td><button onClick={() => { dispatch({ type: 'delete' }) }}>⛔删除上个</button></td>
+            <td>
+              <button
+                onClick={() => {
+                  dispatch({ type: 'add' })
+                }}
+              >
+                ➕新增一个
+              </button>
+            </td>
+            <td>
+              <button
+                onClick={() => {
+                  dispatch({ type: 'delete' })
+                }}
+              >
+                ⛔删除上个
+              </button>
+            </td>
             <td>最少一个</td>
           </tr>
         </tfoot>

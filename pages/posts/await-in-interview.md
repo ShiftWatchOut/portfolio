@@ -99,6 +99,7 @@ const promiseArr = [p1, p2, f3, p4];
 runPromiseInSequence(promiseArr, 10)
   .then(console.log);   // 1200
 ```
+
 难道是文档给的例子（如上）有误？可是将语言切换到英文也是同样的例子， MDN 是中外开发者都在使用的网站，不会存在内容有问题却没人指出。那我们就来看一下我写的部分和实际代码有什么差别。
 
 reducer 函数部分十分简单，给 thenable 的 accumulator 的 then 方法中传入后一个函数。虽然我自己照着 MDN 示例写的这个 reducer 一模一样，但是，后来发现我忽略了一个地方：例子上 accumulator 为什么是 thenable 的？

@@ -56,7 +56,7 @@ function App() {
 
 ![debug 3](/images/group_debug_3.png)
 
-为了验证 `useState` 返回的 `obj` 的 `handleClick` 是最初的那一个函数，我使用了一个累加数字来区分不同次执行时定义的 `handleClick` 。为了避免反复进入断点，我已经将 React.StrictMode 去掉。在点击 `h2` 时果然看到，`handleClick` 函数定义的时候虽然已到 2，但 `obj` 里的却是 1。 
+为了验证 `useState` 返回的 `obj` 的 `handleClick` 是最初的那一个函数，我使用了一个累加数字来区分不同次执行时定义的 `handleClick` 。为了避免反复进入断点，我已经将 React.StrictMode 去掉。在点击 `h2` 时果然看到，`handleClick` 函数定义的时候虽然已到 2，但 `obj` 里的却是 1。
 
 ![debug 2](/images/group_debug_2.png)
 

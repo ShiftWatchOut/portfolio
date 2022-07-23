@@ -17,7 +17,7 @@ author: ShiftWatchOut
 
 在上面的页面内选择需要的主题进行下载，将系统主题压缩包内主文件夹解压缩至`/usr/share/themes/`，图标压缩包内主文件解压缩至`/usr/share/icons/`内。
 
-为了将解压缩的文件拷入系统目录，需要授予文件管理器root权限。终端输入`sudo nautilus`会打开root版文件管理器，终端键入`ctrl + c`停止。
+为了将解压缩的文件拷入系统目录，需要授予文件管理器 root 权限。终端输入`sudo nautilus`会打开 root 版文件管理器，终端键入`ctrl + c`停止。
 
 #### 安装 tweak 工具
 
@@ -40,10 +40,13 @@ sudo apt-get install gnome-shell-extensions
 ##### Zsh 安装
 
 查看有哪些 shell：
+
 ```
 cat /etc/shells
 ```
+
 直接安装：
+
 ```
 sudo apt-get install -y zsh
 ```

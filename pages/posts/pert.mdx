@@ -5,19 +5,20 @@ tag: JS, diary
 description: 出自《代码整洁之道： 程序员的职业素养》
 author: ShiftWatchOut
 ---
-import PertCalculator from "../../components/PertCalculator";
+
+import PertCalculator from '../../components/PertCalculator'
 
 # PERT 预估
 
 计划评审技术（PERT，Program Evaluation and Review Technique）的一部分内容就是对预估的计算方法。
 
-根据3个数字预估某项任务。这就是三元分析法。
+根据 3 个数字预估某项任务。这就是三元分析法。
 
-* O：乐观预估。这是非常乐观的数字。为保证乐观预估有意义，这个数字对应的发生概率应当小于1%。
+- O：乐观预估。这是非常乐观的数字。为保证乐观预估有意义，这个数字对应的发生概率应当小于 1%。
 
-* N：标称预估。这是概率最大的数字。
+- N：标称预估。这是概率最大的数字。
 
-* P：悲观预估。这是最糟糕的数字。为保证悲观预估有意义，这个数字对应的发生概率也应当小于1%。
+- P：悲观预估。这是最糟糕的数字。为保证悲观预估有意义，这个数字对应的发生概率也应当小于 1%。
 
 有了以上三个预估，可以像下面这样描述概率分布：
 
@@ -25,7 +26,7 @@ import PertCalculator from "../../components/PertCalculator";
   μ=(O+4N+P)/6
 ```
 
-μ是任务的期望完成时间。通常这个数字都有点水分
+μ 是任务的期望完成时间。通常这个数字都有点水分
 
 ```
   σ=(P-O)/6

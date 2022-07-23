@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
 
 现在，要了解的是关于设置 `<View>` 填充整个屏幕的一件事。像 iPhoneX 这样的异形屏手机的一部分屏幕残缺了，一些元素将被放置在刘海下面。为避免这个问题，只需使用 React Native 组件 `<SafeAreaView>` 来包装其余的组件，就可以确保您将看到所有屏幕。
 
-另一件事是直接使用 `flex: 1` 。记住，React Native默认使用 Flexbox ，因此您无需在任何元素上设置 `display: flex` 。但是为什么添加 `flex: 1` 可以使元素全屏显示呢？
+另一件事是直接使用 `flex: 1` 。记住，React Native 默认使用 Flexbox ，因此您无需在任何元素上设置 `display: flex` 。但是为什么添加 `flex: 1` 可以使元素全屏显示呢？
 
 在 React Native 中，默认的 `flexDirection` 是 `column` ，您可以设置 `flexDirection` 。但如果没有先设置，则 `flex: 1` 使元素沿主轴向下延伸，因为默认情况下为纵列。如果了解 Flexbox ，就知道没有其他元素时，设为 `flex: 1` 的元素将填充父容器的整个主轴。
 
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
 
 在 React Native 中，关于样式的一点好处是设置边距和填充。两者都提供了一种在一行代码设置上下或左右距离的方法。他们两个都使用了 `Horizontal` 和 `Vertical` 这个词。
 
-例如，要使元素的上下边距为20，可以这样设置：`<View style={{ marginVertical: 20 }}></View>` 。您也可以使用 `paddingVertical: 20` 设置顶部和底部填充。还有 `paddingHorizontal` 和 `marginHorizontal` 。
+例如，要使元素的上下边距为 20，可以这样设置：`<View style={{ marginVertical: 20 }}></View>` 。您也可以使用 `paddingVertical: 20` 设置顶部和底部填充。还有 `paddingHorizontal` 和 `marginHorizontal` 。
 
 这些都还不错，但是您可能会注意到您无法完全像在前端那样去编码，例如：`margin: '20 0 20 0'` 。这在 React Native 中无效。
 
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
 })
 ```
 
-请注意此处设置平台特定样式的两种不同方式。一种方式是在样式之后，使用三元运算符height: `Platform.OS === 'ios' ? 100 : 20` 。在大多数情况下，此方法效果很好，但是如果您想为不止一个平台设置样式怎么办？ 这就轮到 `...Platform.select()` 了。这允许您在一个平台上或在两个平台上指
+请注意此处设置平台特定样式的两种不同方式。一种方式是在样式之后，使用三元运算符 height: `Platform.OS === 'ios' ? 100 : 20` 。在大多数情况下，此方法效果很好，但是如果您想为不止一个平台设置样式怎么办？ 这就轮到 `...Platform.select()` 了。这允许您在一个平台上或在两个平台上指
 定样式：`...Platform.select({ ios { width: 100 }, android: { width: 75 } })` 。
 
 ### Other

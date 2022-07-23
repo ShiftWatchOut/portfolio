@@ -45,7 +45,7 @@ h2 {
 }
 
 @media screen and (min-device-pixel-ratio: 1.5),
-screen and (min-resolution: 1.5dppx) {
+  screen and (min-resolution: 1.5dppx) {
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -69,8 +69,8 @@ img.next-image {
 }
 
 a.insite-card {
-  padding: .8rem 1rem;
-  border-radius: .5rem;
+  padding: 0.8rem 1rem;
+  border-radius: 0.5rem;
   background-color: var(--card-bg);
   flex-grow: 0;
   flex-shrink: 0;
@@ -83,7 +83,7 @@ a.insite-card {
 }
 
 a.insite-card:hover {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 a.insite-card h3 {
@@ -93,6 +93,6 @@ a.insite-card h3 {
 }
 
 a.insite-card p {
-  margin: .25rem 0 0;
+  margin: 0.25rem 0 0;
   color: #7d8b8f;
 }

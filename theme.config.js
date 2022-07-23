@@ -17,5 +17,5 @@ export default {
         }
       `}</style>
     </small>
-  )
+  ),
 }

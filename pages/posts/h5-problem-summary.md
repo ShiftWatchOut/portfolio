@@ -14,7 +14,7 @@ author: ShiftWatchOut
 
 解决方案：由于我们这是 H5 页面，提供给技术体验不太多的用户浏览的，对于历史记录的需求不大，那么我们切换这个应用的路由时，可以使用 **replace** 而非 push 的方式，原生 JS 可以使用 `window.location.href` / `window.location.replace`，react-router 的 `navigate` 方法可以传参设置 `{ replace: true }`
 
-参考链接：[ios微信浏览器分享页面url一直为入口地址](https://developers.weixin.qq.com/community/develop/doc/000c86e36505a8967189843f151800?ivk_sa=1024320u)
+参考链接：[ios 微信浏览器分享页面 url 一直为入口地址](https://developers.weixin.qq.com/community/develop/doc/000c86e36505a8967189843f151800?ivk_sa=1024320u)
 
 ### 微信浏览器强制调整字体大小
 
@@ -26,7 +26,7 @@ author: ShiftWatchOut
 
 ### Safari 浏览器 transform 元素错位
 
-问题描述：5月开发的项目在使用了类似下面结构的代码，在苹果 Safari 浏览器中会出现诡异的 Bug，但后续单独拎出来又没有了。这一项只能说给自己做个备忘。
+问题描述：5 月开发的项目在使用了类似下面结构的代码，在苹果 Safari 浏览器中会出现诡异的 Bug，但后续单独拎出来又没有了。这一项只能说给自己做个备忘。
 
 ```html
 <style>
@@ -73,13 +73,19 @@ author: ShiftWatchOut
     const back = document.querySelector('.back')
     setTimeout(() => {
       back.classList.add('rotate')
-    }, 1000);
+    }, 1000)
   }
 </script>
 <body>
   <div class="container">
-    <img class="box front" src="http://localhost:3000/_next/image?url=%2Fimages%2Fphoto2.jpg&w=1200&q=75">
-    <img class="box back" src="http://localhost:3000/_next/image?url=%2Fimages%2Fphoto.jpg&w=1200&q=75">
+    <img
+      class="box front"
+      src="http://localhost:3000/_next/image?url=%2Fimages%2Fphoto2.jpg&w=1200&q=75"
+    />
+    <img
+      class="box back"
+      src="http://localhost:3000/_next/image?url=%2Fimages%2Fphoto.jpg&w=1200&q=75"
+    />
   </div>
 </body>
 ```

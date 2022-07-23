@@ -1,21 +1,21 @@
 const withNextra = require('nextra')('nextra-theme-blog', './theme.config.js')
-const { withSentryConfig } = require('@sentry/nextjs');
+const { withSentryConfig } = require('@sentry/nextjs')
 const path = require('path')
 
 const sentryWebpackPluginOptions = {
-    // Additional config options for the Sentry Webpack plugin. Keep in mind that
-    // the following options are set automatically, and overriding them is not
-    // recommended:
-    //   release, url, org, project, authToken, configFile, stripPrefix,
-    //   urlPrefix, include, ignore
+  // Additional config options for the Sentry Webpack plugin. Keep in mind that
+  // the following options are set automatically, and overriding them is not
+  // recommended:
+  //   release, url, org, project, authToken, configFile, stripPrefix,
+  //   urlPrefix, include, ignore
 
-    silent: true, // Suppresses all logs
-    // For all available options, see:
-    // https://github.com/getsentry/sentry-webpack-plugin#options.
-};
+  silent: true, // Suppresses all logs
+  // For all available options, see:
+  // https://github.com/getsentry/sentry-webpack-plugin#options.
+}
 module.exports = {
-    ...withSentryConfig(withNextra(), sentryWebpackPluginOptions),
-    sassOptions: {
-        includePaths: [path.join(__dirname, 'styles')],
-    },
+  ...withSentryConfig(withNextra(), sentryWebpackPluginOptions),
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'styles')],
+  },
 }
