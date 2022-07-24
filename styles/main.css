@@ -87,6 +87,7 @@ a.insite-card:hover {
 }
 
 a.insite-card h3 {
+  color: #7d8b8f !important;
   margin: 0;
   font-size: 1.1rem;
   line-height: 1.6;
