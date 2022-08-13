@@ -90,7 +90,7 @@ $ git rebase dev # 至此 target 与 dev 完全同步
 	proxy = socks5://127.0.0.1:port
 ```
 
-用了好久一直都没出问题，诡异的是，我在不能拉代码的时候网上一搜，发现这玩意还要设置 ssh 的一些东西，在 `.ssh\config` 中配置如下，才能正常使用：
+用了好久一直都没出问题，诡异的是，我在不能拉代码的时候[网上](https://gist.github.com/laispace/666dd7b27e9116faece6?permalink_comment_id=3686810#gistcomment-3686810)一搜，发现这玩意还要设置 ssh 的一些东西，在 `.ssh\config` 中配置如下，才能正常使用：
 
 ```
 Host github.com
