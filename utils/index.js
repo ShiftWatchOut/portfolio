@@ -1,3 +1,5 @@
+import { useEffect, useLayoutEffect } from "react"
+
 /**
  * 阻塞当前异步函数
  * @param {number} time 毫秒
@@ -37,3 +39,7 @@ export const copy = (str) => {
     ele.remove()
   }
 }
+
+export const isBrowser = () => !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+
+export const useIsomorphicLayoutEffect = isBrowser() ? useLayoutEffect : useEffect;
