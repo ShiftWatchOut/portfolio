@@ -1,6 +1,7 @@
 import 'nextra-theme-blog/style.css'
 import Head from 'next/head'
 import ProgressIndicator from '../components/ProgressIndicator'
+import { Analytics } from '@vercel/analytics/react'
 
 import '../styles/main.css'
 
@@ -24,6 +25,7 @@ export default function Nextra({ Component, pageProps }) {
       </Head>
       <Component {...pageProps} />
       <ProgressIndicator />
+      <Analytics />
     </>
   )
 }
