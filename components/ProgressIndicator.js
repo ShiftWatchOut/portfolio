@@ -1,24 +1,28 @@
-import React, { useEffect, useRef } from 'react'
+import { useRouter } from 'next/router'
+import React, { useRef } from 'react'
+import { useIsomorphicLayoutEffect } from '../utils'
 
 const ProgressIndicator = () => {
+  const router = useRouter()
+  const showProgress = router.pathname.startsWith('/posts/');
   /** @type {import('react').RefObject<HTMLDivElement>} */
   const innerRef = useRef()
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     /**
      * @param {Event} e
      */
     const scrollHandler = (e) => {
-      const clientHeight = document.body.clientHeight
-      const scrollTop = document.body.scrollTop
-      const scrollHeight = document.body.scrollHeight
-      console.table({ clientHeight, scrollTop, scrollHeight, e })
+      const clientHeight = document.documentElement.clientHeight
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+      const scrollHeight = document.documentElement.scrollHeight
+      const progressELe = innerRef.current;
+      if (progressELe) {
+        progressELe.style.width = `${(scrollTop / (scrollHeight - clientHeight))/* .toFixed(2) */ * 100}%`
+      }
     }
-    console.log('binding')
-    // window.onscroll = scrollHandler
-    document.documentElement.addEventListener('scroll', scrollHandler, true)
+    document.addEventListener('scroll', scrollHandler)
     return () => {
-      // window.onscroll = null
-      document.documentElement.removeEventListener(
+      document.removeEventListener(
         'scroll',
         scrollHandler,
         true,
@@ -26,7 +30,7 @@ const ProgressIndicator = () => {
     }
   }, [])
 
-  return (
+  return showProgress && (
     <div
       style={{
         width: '100%',
@@ -42,7 +46,7 @@ const ProgressIndicator = () => {
           content: '',
           position: 'absolute',
           left: 0,
-          width: '30%',
+          width: '0%',
           height: '100%',
           backgroundColor: '#0089f2',
         }}
