@@ -10,10 +10,10 @@ Sentry.init({
   dsn:
     SENTRY_DSN ||
     'https://5317599eb2624a5884af92637eb55a49@o1301392.ingest.sentry.io/6537920',
+
   // Adjust this value in production, or use tracesSampler for greater control
-  tracesSampleRate: 1.0,
-  // ...
-  // Note: if you want to override the automatic release value, do not set a
-  // `release` value here - use the environment variable `SENTRY_RELEASE`, so
-  // that it will also get attached to your source maps
+  tracesSampleRate: 1,
+
+  // Setting this option to true will print useful information to the console while you're setting up Sentry.
+  debug: false,
 })
