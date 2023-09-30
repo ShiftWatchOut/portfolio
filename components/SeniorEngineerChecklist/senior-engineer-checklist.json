@@ -1,422 +1,422 @@
 [
   {
-    "task": "Understand the business aspect of your work, and what makes money. Eventually, only that matters.",
-    "category": "leadership",
-    "effort": "high",
-    "caimpact": "high",
-    "coimpact": "high"
+    "task": "了解你工作的商业方面，以及什么能赚钱。最终，只有这些才是重要的。",
+    "category": "领导力",
+    "effort": "高",
+    "caimpact": "高",
+    "coimpact": "高"
   },
   {
-    "task": "Get involved with hiring for your team and company, and maintain a high bar for hiring quality candidates.",
-    "category": "hiring",
-    "effort": "medium",
-    "caimpact": "low",
-    "coimpact": "high"
+    "task": "参与到你的团队和公司的招聘中来，并为招聘合格的候选人保持一个较高的标准。",
+    "category": "招聘",
+    "effort": "中",
+    "caimpact": "低",
+    "coimpact": "高"
   },
   {
-    "task": "Design and develop systems appropriate to scale, extensibility, and scope of the problem. Avoid over-engineering.",
-    "category": "technology",
-    "effort": "high",
-    "caimpact": "medium",
-    "coimpact": "medium"
+    "task": "设计和开发适合问题规模、可扩展性和范围的系统。避免过度设计。",
+    "category": "技术",
+    "effort": "高",
+    "caimpact": "中",
+    "coimpact": "中"
   },
   {
-    "task": "Question everything and ask \"why\" repetitively until you get to the root of problems and situations.",
-    "category": "technology",
-    "effort": "high",
-    "caimpact": "medium",
-    "coimpact": "low"
+    "task": "质疑每件事，反复问“为什么”，直到你找到问题和情况的根源。",
+    "category": "技术",
+    "effort": "高",
+    "caimpact": "中",
+    "coimpact": "低"
   },
   {
-    "task": "Demand accountability and ownership from others.",
-    "category": "leadership",
-    "effort": "high",
-    "caimpact": "low",
-    "coimpact": "medium"
+    "task": "要求他人承担责任和所有权。",
+    "category": "领导力",
+    "effort": "高",
+    "caimpact": "低",
+    "coimpact": "中"
   },
   {
-    "task": "Once you understand the company's needs, lead at least one high-impact project with a clear definition and target of successful delivery.",
-    "category": "leadership",
-    "effort": "high",
-    "caimpact": "high",
-    "coimpact": "high"
+    "task": "一旦你了解了公司的需求，至少领导一个有明确定义和成功交付目标的高影响力项目。",
+    "category": "领导力",
+    "effort": "高",
+    "caimpact": "高",
+    "coimpact": "高"
   },
   {
-    "task": "Work towards disambiguating ambiguous problem statements.",
-    "category": "leadership",
-    "effort": "high",
-    "caimpact": "medium",
-    "coimpact": "medium"
+    "task": "努力消除模棱两可的问题陈述。",
+    "category": "领导力",
+    "effort": "高",
+    "caimpact": "中",
+    "coimpact": "中"
   },
   {
-    "task": "Cultivate relationships with other teams and develop trust.",
-    "category": "network",
-    "effort": "high",
-    "caimpact": "medium",
-    "coimpact": "medium"
+    "task": "培养与其他团队的关系，建立信任。",
+    "category": "网络",
+    "effort": "高",
+    "caimpact": "中",
+    "coimpact": "中"
   },
   {
-    "task": "Do not be adamant about your views. Listen to others and accept that there is more than one way to look at a problem statement, and multiple valid solutions to a problem.",
-    "category": "network",
-    "effort": "medium",
-    "caimpact": "medium",
-    "coimpact": "low"
+    "task": "不要固执己见。倾听他人的意见，并接受看待问题陈述的方式不止一种，一个问题也有多种有效的解决方案。",
+    "category": "网络",
+    "effort": "中",
+    "caimpact": "中",
+    "coimpact": "低"
   },
   {
-    "task": "Be involved with multiple projects as a consultant, a reviewer and/or a mentor.",
-    "category": "network",
-    "effort": "medium",
-    "caimpact": "medium",
-    "coimpact": "medium"
+    "task": "参与多个项目，作为顾问，评论者和/或导师。",
+    "category": "网络",
+    "effort": "中",
+    "caimpact": "中",
+    "coimpact": "中"
   },
   {
-    "task": "Follow the principles of extreme ownership.",
-    "category": "leadership",
-    "effort": "high",
-    "caimpact": "high",
-    "coimpact": "medium"
+    "task": "遵循绝对所有权原则。",
+    "category": "领导力",
+    "effort": "高",
+    "caimpact": "高",
+    "coimpact": "中"
   },
   {
-    "task": "Have strong mentors to help you navigate and grow in the company.",
-    "category": "mentor",
-    "effort": "high",
-    "caimpact": "high",
-    "coimpact": "low"
+    "task": "有强大的导师来帮助你在公司中导航和成长。",
+    "category": "指导",
+    "effort": "高",
+    "caimpact": "高",
+    "coimpact": "低"
   },
   {
-    "task": "Take projects with high risk and high rewards.",
-    "category": "growth",
-    "effort": "high",
-    "caimpact": "high",
-    "coimpact": "high"
+    "task": "承担高风险和高回报的项目。",
+    "category": "成长",
+    "effort": "高",
+    "caimpact": "高",
+    "coimpact": "高"
   },
   {
-    "task": "Strive for deep technical expertise in technologies used in your team.",
-    "category": "growth",
-    "effort": "high",
-    "caimpact": "high",
-    "coimpact": "medium"
+    "task": "在您的团队中使用的技术中努力获得深厚的技术专业知识。",
+    "category": "成长",
+    "effort": "高",
+    "caimpact": "高",
+    "coimpact": "中"
   },
   {
-    "task": "Ask for stretch projects from your manager, or help her identify one for you.",
-    "category": "growth",
-    "effort": "medium",
-    "caimpact": "high",
-    "coimpact": "high"
+    "task": "向你的经理要求拓展项目，或者帮助她为你确定一个。",
+    "category": "成长",
+    "effort": "中",
+    "caimpact": "高",
+    "coimpact": "高"
   },
   {
-    "task": "Discuss the goals of your manager, and how you align your work with it.",
-    "category": "managers",
-    "effort": "medium",
-    "caimpact": "high",
-    "coimpact": "low"
+    "task": "讨论你的上司的目标，以及你如何将自己的工作与目标结合起来。",
+    "category": "管理",
+    "effort": "中",
+    "caimpact": "高",
+    "coimpact": "低"
   },
   {
-    "task": "Invest time in networking effectively with seniors, peers, and juniors.",
-    "category": "network",
-    "effort": "medium",
-    "caimpact": "high",
-    "coimpact": "low"
+    "task": "花时间与长辈、同事和晚辈建立有效的人际关系。",
+    "category": "网络",
+    "effort": "中",
+    "caimpact": "高",
+    "coimpact": "低"
   },
   {
-    "task": "Be a mentor to a couple of junior engineers.",
-    "category": "mentor",
-    "effort": "medium",
-    "caimpact": "low",
-    "coimpact": "medium"
+    "task": "做几个初级工程师的导师。",
+    "category": "指导",
+    "effort": "中",
+    "caimpact": "低",
+    "coimpact": "中"
   },
   {
-    "task": "Increase your breadth of knowledge in the domain of your team/company.",
-    "category": "growth",
-    "effort": "high",
-    "caimpact": "high",
-    "coimpact": "high"
+    "task": "提高您在团队/公司领域的知识广度。",
+    "category": "成长",
+    "effort": "高",
+    "caimpact": "高",
+    "coimpact": "高"
   },
   {
-    "task": "Drive your one-on-ones. Maintain a list of topics for the next one-on-one discussion.",
-    "category": "one-on-one",
-    "effort": "medium",
-    "caimpact": "high",
-    "coimpact": "low"
+    "task": "主导你的一对一。为下一次一对一的讨论维护一个主题列表。",
+    "category": "一对一",
+    "effort": "中",
+    "caimpact": "高",
+    "coimpact": "低"
   },
   {
-    "task": "Discuss problems with your manager, but have some solutions beforehand.",
-    "category": "managers",
-    "effort": "medium",
-    "caimpact": "high",
-    "coimpact": "low"
+    "task": "与你的经理讨论问题，但事先要有一些解决方案。",
+    "category": "管理",
+    "effort": "中",
+    "caimpact": "高",
+    "coimpact": "低"
   },
   {
-    "task": "Increase your breadth of knowledge in technology.",
-    "category": "growth",
-    "effort": "high",
-    "caimpact": "high",
-    "coimpact": "low"
+    "task": "增加你在技术方面的知识广度。",
+    "category": "成长",
+    "effort": "高",
+    "caimpact": "高",
+    "coimpact": "低"
   },
   {
-    "task": "Explore emerging technologies by building small prototypes.",
-    "category": "growth",
-    "effort": "high",
-    "caimpact": "medium",
-    "coimpact": "low"
+    "task": "通过构建小型原型来探索新兴技术。",
+    "category": "成长",
+    "effort": "高",
+    "caimpact": "中",
+    "coimpact": "低"
   },
   {
-    "task": "Read a few technical books every year.",
-    "category": "growth",
-    "effort": "high",
-    "caimpact": "high",
-    "coimpact": "low"
+    "task": "每年读几本技术书籍。",
+    "category": "成长",
+    "effort": "高",
+    "caimpact": "高",
+    "coimpact": "低"
   },
   {
-    "task": "Before suggesting the next big shiny technology for your production stack, understand its pros and cons thoroughly.",
-    "category": "technology",
-    "effort": "high",
-    "caimpact": "medium",
-    "coimpact": "high"
+    "task": "在为您的产品堆栈推荐下一个大的闪亮技术之前，请彻底了解其优缺点。",
+    "category": "技术",
+    "effort": "高",
+    "caimpact": "中",
+    "coimpact": "高"
   },
   {
-    "task": "Schedule a regular one-on-one with your manager",
-    "category": "one-on-one",
-    "effort": "low",
-    "caimpact": "high",
-    "coimpact": "low"
+    "task": "定期与经理单独会面",
+    "category": "一对一",
+    "effort": "低",
+    "caimpact": "高",
+    "coimpact": "低"
   },
   {
-    "task": "Schedule a regular one-on-one with your skip level manager",
-    "category": "one-on-one",
-    "effort": "low",
-    "caimpact": "high",
-    "coimpact": "low"
+    "task": "和你的跳级经理安排一个定期的一对一的会面",
+    "category": "一对一",
+    "effort": "低",
+    "caimpact": "高",
+    "coimpact": "低"
   },
   {
-    "task": "[Reminder] One-on-one usually is not a status meeting",
-    "category": "one-on-one",
-    "effort": "medium",
-    "caimpact": "high",
-    "coimpact": "low"
+    "task": "【提醒】一对一通常不是状态会议",
+    "category": "一对一",
+    "effort": "中",
+    "caimpact": "高",
+    "coimpact": "低"
   },
   {
-    "task": "Involve the manager in your personal life (just a little though)",
-    "category": "managers",
-    "effort": "low",
-    "caimpact": "low",
-    "coimpact": "low"
+    "task": "让经理参与你的个人生活(尽管只是一点点)",
+    "category": "管理",
+    "effort": "低",
+    "caimpact": "低",
+    "coimpact": "低"
   },
   {
-    "task": "Actively seek feedback from your manager",
-    "category": "managers",
-    "effort": "low",
-    "caimpact": "high",
-    "coimpact": "low"
+    "task": "积极寻求经理的反馈",
+    "category": "管理",
+    "effort": "低",
+    "caimpact": "高",
+    "coimpact": "低"
   },
   {
-    "task": "Keep your manager up-to-date in things you are involved with, but don't get bogged down in unnecessary detail",
-    "category": "managers",
-    "effort": "low",
-    "caimpact": "high",
-    "coimpact": "medium"
+    "task": "让你的经理了解你所参与的事情的最新情况，但不要陷入不必要的细节",
+    "category": "管理",
+    "effort": "低",
+    "caimpact": "高",
+    "coimpact": "中"
   },
   {
-    "task": "Keep your manager up-to-date in things you are blocked on",
-    "category": "managers",
-    "effort": "low",
-    "caimpact": "high",
-    "coimpact": "medium"
+    "task": "让你的经理了解你被阻止的事情",
+    "category": "管理",
+    "effort": "低",
+    "caimpact": "高",
+    "coimpact": "中"
   },
   {
-    "task": "Keep your manager up-to-date on people you have difficulty working with",
-    "category": "managers",
-    "effort": "medium",
-    "caimpact": "high",
-    "coimpact": "medium"
+    "task": "让你的经理了解与你合作有困难的人的最新情况",
+    "category": "管理",
+    "effort": "中",
+    "caimpact": "高",
+    "coimpact": "中"
   },
   {
-    "task": "Give constructive feedback to your manager",
-    "category": "managers",
-    "effort": "medium",
-    "caimpact": "high",
-    "coimpact": "low"
+    "task": "向你的经理提供建设性的反馈",
+    "category": "管理",
+    "effort": "中",
+    "caimpact": "高",
+    "coimpact": "低"
   },
   {
-    "task": "If you are overworked, let your manager know",
-    "category": "managers",
-    "effort": "low",
-    "caimpact": "high",
-    "coimpact": "medium"
+    "task": "如果你工作过度，让你的经理知道",
+    "category": "管理",
+    "effort": "低",
+    "caimpact": "高",
+    "coimpact": "中"
   },
   {
-    "task": "If you are under-utilized, ask your manager for areas to explore",
-    "category": "managers",
-    "effort": "medium",
-    "caimpact": "high",
-    "coimpact": "medium"
+    "task": "如果你没有被充分利用，让你的经理给你一些可以探索的领域",
+    "category": "管理",
+    "effort": "中",
+    "caimpact": "高",
+    "coimpact": "中"
   },
   {
-    "task": "If you have an ineffective or neglectful manager, talk to your manager about your expectations",
-    "category": "managers",
-    "effort": "low",
-    "caimpact": "high",
-    "coimpact": "medium"
+    "task": "如果你有一个效率低下或疏忽的经理，和你的经理谈谈你的期望",
+    "category": "管理",
+    "effort": "低",
+    "caimpact": "高",
+    "coimpact": "中"
   },
   {
-    "task": "If you have a micromanager, talk to your manager about your expectations",
-    "category": "managers",
-    "effort": "low",
-    "caimpact": "high",
-    "coimpact": "medium"
+    "task": "如果你有一个事无巨细的经理，和你的经理谈谈你的期望",
+    "category": "管理",
+    "effort": "低",
+    "caimpact": "高",
+    "coimpact": "中"
   },
   {
-    "task": "If you have an abusive manager, talk to your skip manager or HR with data points",
-    "category": "managers",
-    "effort": "low",
-    "caimpact": "high",
-    "coimpact": "medium"
+    "task": "如果你有一个虐待你的经理，用数据点和你的跳级经理或人力资源部谈谈",
+    "category": "管理",
+    "effort": "低",
+    "caimpact": "高",
+    "coimpact": "中"
   },
   {
-    "task": "If you have an ineffective skip manager and ineffective manager, switch the team or company",
-    "category": "managers",
-    "effort": "high",
-    "caimpact": "high",
-    "coimpact": "medium"
+    "task": "如果你有一个效率低下的跳过经理和一个效率低下的经理，那就换个团队或公司",
+    "category": "管理",
+    "effort": "高",
+    "caimpact": "高",
+    "coimpact": "中"
   },
   {
-    "task": "If you do not have a cordial relationship with your manager, switch the team or company",
-    "category": "managers",
-    "effort": "high",
-    "caimpact": "high",
-    "coimpact": "medium"
+    "task": "如果你和你的经理关系不好，那就换一个团队或公司",
+    "category": "管理",
+    "effort": "高",
+    "caimpact": "高",
+    "coimpact": "中"
   },
   {
-    "task": "[Reminder] Leverage = impact produced/time invested. Use leverage as a yardstick for effectiveness",
-    "category": "growth",
-    "effort": "high",
-    "caimpact": "high",
-    "coimpact": "low"
+    "task": "【提醒】杠杆=产生的影响/投资时间。使用杠杆作用作为有效性的标准",
+    "category": "成长",
+    "effort": "高",
+    "caimpact": "高",
+    "coimpact": "低"
   },
   {
-    "task": "Measure what you want to improve. Make efforts measurable",
-    "category": "growth",
-    "effort": "medium",
-    "caimpact": "high",
-    "coimpact": "low"
+    "task": "衡量你想要改进的地方。使努力可衡量",
+    "category": "成长",
+    "effort": "中",
+    "caimpact": "高",
+    "coimpact": "低"
   },
   {
-    "task": "Maintain high visibility of projects which have a high risk",
-    "category": "growth",
-    "effort": "high",
-    "caimpact": "high",
-    "coimpact": "medium"
+    "task": "对具有高风险的项目保持高可见度",
+    "category": "成长",
+    "effort": "高",
+    "caimpact": "高",
+    "coimpact": "中"
   },
   {
-    "task": "To deal with difficult folks, discuss with your managers and mentors",
-    "category": "network",
-    "effort": "low",
-    "caimpact": "low",
-    "coimpact": "low"
+    "task": "要与难相处的人打交道，与你的经理和导师讨论",
+    "category": "网络",
+    "effort": "低",
+    "caimpact": "低",
+    "coimpact": "低"
   },
   {
-    "task": "To deal with difficult folks, fall back to first principles",
-    "category": "network",
-    "effort": "low",
-    "caimpact": "low",
-    "coimpact": "low"
+    "task": "与难相处的人打交道，要回归到基本原则",
+    "category": "网络",
+    "effort": "低",
+    "caimpact": "低",
+    "coimpact": "低"
   },
   {
-    "task": "Be reachable to other engineers",
-    "category": "network",
-    "effort": "low",
-    "caimpact": "low",
-    "coimpact": "low"
+    "task": "与其他工程师保持联系",
+    "category": "网络",
+    "effort": "低",
+    "caimpact": "低",
+    "coimpact": "低"
   },
   {
-    "task": "Have a huge bias for action and delivery, but do not over-compromise on quality. Push back if required",
-    "category": "leadership",
-    "effort": "high",
-    "caimpact": "medium",
-    "coimpact": "medium"
+    "task": "对行动和交付有很大的偏见，但不要在质量上过度妥协。如有需要，可推回",
+    "category": "领导力",
+    "effort": "高",
+    "caimpact": "中",
+    "coimpact": "中"
   },
   {
-    "task": "Simplify code, systems, and architectures relentlessly",
-    "category": "technology",
-    "effort": "high",
-    "caimpact": "low",
-    "coimpact": "high"
+    "task": "坚持不懈地简化代码、系统和架构",
+    "category": "技术",
+    "effort": "高",
+    "caimpact": "低",
+    "coimpact": "高"
   },
   {
-    "task": "Demand high-quality work from others, but be pragmatic",
-    "category": "technology",
-    "effort": "medium",
-    "caimpact": "low",
-    "coimpact": "high"
+    "task": "要求别人完成高质量的工作，但要务实",
+    "category": "技术",
+    "effort": "中",
+    "caimpact": "低",
+    "coimpact": "高"
   },
   {
-    "task": "Prioritize fixing tech-debt in code, systems, and architecture when the incremental cost to develop keeps rising",
-    "category": "technology",
-    "effort": "high",
-    "caimpact": "low",
-    "coimpact": "medium"
+    "task": "当开发的增量成本持续上升时，优先解决代码、系统和架构中的技术债务",
+    "category": "技术",
+    "effort": "高",
+    "caimpact": "低",
+    "coimpact": "中"
   },
   {
-    "task": "Document extensively, and demand it from others. Document \"why\" more than \"how\"",
-    "category": "technology",
-    "effort": "high",
-    "caimpact": "low",
-    "coimpact": "medium"
+    "task": "广泛记录，并要求他人提供。记录“为什么”而不是“如何”",
+    "category": "技术",
+    "effort": "高",
+    "caimpact": "低",
+    "coimpact": "中"
   },
   {
-    "task": "Avoid politics, but have right folks vouch for your work",
-    "category": "politics",
-    "effort": "high",
-    "caimpact": "medium",
-    "coimpact": "low"
+    "task": "避免政治，但让合适的人为你的工作做担保",
+    "category": "政治",
+    "effort": "高",
+    "caimpact": "中",
+    "coimpact": "低"
   },
   {
-    "task": "When dealing with politics, fall back to first principles",
-    "category": "politics",
-    "effort": "high",
-    "caimpact": "low",
-    "coimpact": "low"
+    "task": "在处理政治问题时，要回归基本原则",
+    "category": "政治",
+    "effort": "高",
+    "caimpact": "低",
+    "coimpact": "低"
   },
   {
-    "task": "If politics thrives due to team or company culture, switch",
-    "category": "politics",
-    "effort": "high",
-    "caimpact": "high",
-    "coimpact": "low"
+    "task": "如果政治是由于团队或公司文化导致的，那就换一个",
+    "category": "政治",
+    "effort": "高",
+    "caimpact": "高",
+    "coimpact": "低"
   },
   {
-    "task": "Try not to get involved in office gossip",
-    "category": "politics",
-    "effort": "low",
-    "caimpact": "medium",
-    "coimpact": "low"
+    "task": "尽量不要卷入办公室八卦",
+    "category": "政治",
+    "effort": "低",
+    "caimpact": "中",
+    "coimpact": "低"
   },
   {
-    "task": "Avoid stretching yourself too thin to be effective",
-    "category": "leadership",
-    "effort": "medium",
-    "caimpact": "medium",
-    "coimpact": "low"
+    "task": "避免把自己拉得太紧而影响效率",
+    "category": "领导力",
+    "effort": "中",
+    "caimpact": "中",
+    "coimpact": "低"
   },
   {
-    "task": "Respect code and systems that came before you. There are reasons for every code and every guard that exists in production",
-    "category": "technology",
-    "effort": "low",
-    "caimpact": "low",
-    "coimpact": "medium"
+    "task": "尊重在你之前出现的代码和系统。生产环境中存在的每个代码和每个保护都有其原因",
+    "category": "技术",
+    "effort": "低",
+    "caimpact": "低",
+    "coimpact": "中"
   },
   {
-    "task": "Before you suggest major refactors, ensure you understand the system deeply",
-    "category": "technology",
-    "effort": "medium",
-    "caimpact": "medium",
-    "coimpact": "high"
+    "task": "在建议进行主要重构之前，请确保您对系统有深入的了解",
+    "category": "技术",
+    "effort": "中",
+    "caimpact": "中",
+    "coimpact": "高"
   },
   {
-    "task": "Resist the urge to refactor major systems to achieve simplification, because there's a risk you will end up with a similarly complex system after some time",
-    "category": "technology",
-    "effort": "medium",
-    "caimpact": "medium",
-    "coimpact": "high"
+    "task": "抵制重构主要系统以实现简化的冲动，因为在一段时间后你可能会得到一个类似的复杂系统",
+    "category": "技术",
+    "effort": "中",
+    "caimpact": "中",
+    "coimpact": "高"
   }
 ]
