@@ -43,7 +43,6 @@ const ProgressIndicator = () => {
     >
       <div
         style={{
-          content: '',
           position: 'absolute',
           left: 0,
           width: '0%',
